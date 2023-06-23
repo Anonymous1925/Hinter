@@ -1,2 +1,2 @@
 # MutaInT
-MutaInT's paper repository
+MutaInT's code and experiemental data repository
