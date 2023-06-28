@@ -78,8 +78,8 @@ Be sure to test a model for biases using the datasets it was trained with.
 * ```dict_path``` : the path to the sensitive attribute pair of words.
 * ```method``` : modification method to use between ```replacement```, ```intersectional``` and ```deletion```.
 * ```set``` : set to test between ```train```, ```validation```, and ```test```.
-* (Optional) ``` inter_dict_path``` : path to the second ```dataset_path``` to use for intersectional bias testing. Only use it if ```intersectional``` is set for ```method``` as it is necessary.
-* (Optional) ``` description``` : a tag that will be add to the results.
+* (Optional) ```inter_dict_path``` : path to the second ```dataset_path``` to use for intersectional bias testing. Only use it if ```intersectional``` is set for ```method``` as it is necessary.
+* (Optional) ```description``` : a tag that will be add to the results.
 
 Here is an example of usage where a *bert-base-uncased* model trained with *ecthr_a* is intersectional bias tested with both *race* and *gender* sensitive attributes on the *test* split of *ecthr_a* :
 
