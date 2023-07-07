@@ -41,11 +41,11 @@ The code implements *MutaInt*. *MutaInt* combines mutation analysis and metamorp
 
 The approach use a bias dictionary produced from [SBIC](https://paperswithcode.com/dataset/sbic) to  generate a test suite containing bias mutations from texts.
 
-The repository evaluates *MutaInt* using from [LexGLUE](https://github.com/coastalcph/lex-glue) Benchmark **five** legal datasets (*Ecthr A*, *Ecthr B*, *Scotus*, * Eurlex*, *Ledgar*) and **four** LLM architectures (*BERT*, *Legal-BERT*, *RoBERTA*, *DeBERTA*) resulting in **20** models to evalutate **three** sensitive attributes (*race*, *gender*, *body*). Note that only the non-hierarchical were used.
+The repository evaluates *MutaInt* using [LexGLUE](https://github.com/coastalcph/lex-glue) Benchmark **five** legal datasets (*Ecthr A*, *Ecthr B*, *Scotus*, * Eurlex*, *Ledgar*) and **four** LLM architectures (*BERT*, *Legal-BERT*, *RoBERTA*, *DeBERTA*) resulting in **20** models to evalutate **three** sensitive attributes (*race*, *gender*, *body*). <!--Note that only the non-hierarchical were used.-->
 
 Details of the performance of our fine-tuned models versus the original from [LexGLUE](https://github.com/coastalcph/lex-glue).
 
-More details can be found in the paper : XXX <!-- TODO -->
+More details can be found in the paper : XXX [find](EMNLP_2023.pdf)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
