@@ -10,7 +10,7 @@ def fct_modification(fct_replacement, word_list, complete_dataset_size, dataset_
     l_replaced_occurrences = 0
     mutants = []
     for i_word in range(len(word_list)):
-        print("Pair ", i_word+1, "/", len(word_list))
+        #print("Pair ", i_word+1, "/", len(word_list))
         word = word_list[i_word]
         replacement_word = fct_replacement(i_word, replacement_list)
         for i in range(complete_dataset_size):
@@ -39,7 +39,7 @@ def fct_intersectional(word_list_1, replacement_list_1, word_list_2,replacement_
     mutants = []
     absence = set()
     for i in range(complete_dataset_size):
-        print("Doing ", i + 1, "/", complete_dataset_size)
+        #print("Doing ", i + 1, "/", complete_dataset_size)
         for i_word in range(len(word_list_1)):
             word_1 = word_list_1[i_word]
             replacement_word_1 = replacement_list_1[i_word]
