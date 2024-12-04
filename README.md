@@ -3,10 +3,10 @@
 <br />
 <div align="center">
 
-<h3 align="center">MutaInT</h3>
+<h3 align="center">HINTER</h3>
 
   <p align="center">
-  MutaInT's code and experiemental data repository. This is the repository for the paper titled "Testing for Intersectional Bias in Large Language Models"
+  HINTER's code and experiemental data repository. This is the repository for the paper titled "HINTER: Exposing Hidden Intersectional Bias in Large Language Models"
     <br />
     <br />
     <br />
@@ -37,11 +37,11 @@
 
 ## About The Project
 
-The code implements *MutaInt*. *MutaInt* combines mutation analysis and metamorphic oracles to automatically generate bias-prone test inputs with that expose intersectional bias instances. 
+The code implements *HINTER*. *HINTER* combines mutation analysis and metamorphic oracles to automatically generate bias-prone test inputs with that expose intersectional bias instances. 
 
 The approach use a bias dictionary produced from [SBIC](https://paperswithcode.com/dataset/sbic) to  generate a test suite containing bias mutations from texts.
 
-The repository evaluates *MutaInt* using [LexGLUE](https://github.com/coastalcph/lex-glue) Benchmark **five** legal datasets (*Ecthr A*, *Ecthr B*, *Scotus*, * Eurlex*, *Ledgar*) and **four** LLM architectures (*BERT*, *Legal-BERT*, *RoBERTA*, *DeBERTA*) resulting in **20** models to evalutate **three** sensitive attributes (*race*, *gender*, *body*). <!--Note that only the non-hierarchical were used.-->
+The repository evaluates *HINTER* using [LexGLUE](https://github.com/coastalcph/lex-glue) Benchmark **four** legal datasets (*Ecthr A*, *Scotus*, * Eurlex*, *Ledgar*) and **four** LLM architectures (*BERT*, *Legal-BERT*, *RoBERTA*, *DeBERTA*) resulting in **16** models to evalutate **three** sensitive attributes (*race*, *gender*, *body*). In addition, we use Llama2 and GPT3.5 in our experiments, and IMDB. For a total of **18** models and **five** datasets. <!--Note that only the non-hierarchical were used.-->
 
 Details of the performance of our fine-tuned models versus the original from [LexGLUE](https://github.com/coastalcph/lex-glue).
 
