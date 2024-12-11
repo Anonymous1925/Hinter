@@ -47,7 +47,7 @@ Details of the performance of our fine-tuned models versus the original from [Le
 
 More details can be found in the [paper](7817HINTERExposingHidden.pdf).
 
-Some hidden fairness issues can be test in this [hugging face space](https://huggingface.co/spaces/Anonymous1925/Hinter).
+Some hidden fairness issues can be tested in this [hugging face space](https://huggingface.co/spaces/Anonymous1925/Hinter).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
