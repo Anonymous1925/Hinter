@@ -46,6 +46,7 @@ The repository evaluates *HINTER* using [LexGLUE](https://github.com/coastalcph/
 Details of the performance of our fine-tuned models versus the original from [LexGLUE](https://github.com/coastalcph/lex-glue).
 
 More details can be found in the [paper](7817HINTERExposingHidden.pdf).
+Some hidden fairness issues can be test in this [hugging face space](https://huggingface.co/spaces/Anonymous1925/Hinter).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -57,7 +58,7 @@ This section explains what how to install the necessary components, and launch t
 
 ### Prerequisites
 The experiments were tested on both Windows and Linux (Ubuntu 20.04).
-* At least one non-hierarchical model trained from [LexGLUE](https://github.com/coastalcph/lex-glue) (all 20 combinations of models/datasets cited above to reproduce everything)
+* At least one non-hierarchical model trained from [LexGLUE](https://github.com/coastalcph/lex-glue) (all 16 combinations of BERT models/datasets cited above to reproduce everything)
 * Python 3.8
 
 ### Installation
