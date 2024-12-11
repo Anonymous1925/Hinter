@@ -45,7 +45,7 @@ The repository evaluates *HINTER* using [LexGLUE](https://github.com/coastalcph/
 
 Details of the performance of our fine-tuned models versus the original from [LexGLUE](https://github.com/coastalcph/lex-glue).
 
-More details can be found in the [paper](EMNLP_2023.pdf).
+More details can be found in the [paper](7817HINTERExposingHidden.pdf).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
