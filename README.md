@@ -6,7 +6,8 @@
 <h3 align="center">HINTER</h3>
 
   <p align="center">
-  HINTER's code and experiemental data repository. This is the repository for the paper titled "HINTER: Exposing Hidden Intersectional Bias in Large Language Models"
+  HINTER's code and experiemental data repository. This is the repository for the paper titled "HINTER: Exposing Hidden Intersectional Bias in Large Language Models".
+    The [paper](7817HINTERExposingHidden.pdf) and [supplementary material](supplementary_material.pdf) can be found in the repository. 
     <br />
     <br />
     <br />
