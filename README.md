@@ -45,7 +45,7 @@ The repository evaluates *HINTER* using [LexGLUE](https://github.com/coastalcph/
 
 Details of the performance of our fine-tuned models versus the original from [LexGLUE](https://github.com/coastalcph/lex-glue).
 
-More details can be found in the [paper](7817HINTERExposingHidden.pdf).
+More details can be found in the [paper](7817HINTERExposingHidden.pdf), and in the [supplementary materials](supplementary_materials/pdf).
 
 Some hidden fairness issues can be tested in this [hugging face space](https://huggingface.co/spaces/Anonymous1925/Hinter).
 
