@@ -1,7 +1,7 @@
 import torch
 import time
 import methods
-import sememe_coref as sm
+import utils as sm
 
 def fct_modification(fct_replacement, word_list, complete_dataset_size, dataset_text, replacement_list=[]):
     discarded_mutants_length = 0
