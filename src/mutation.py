@@ -9,7 +9,7 @@ import os
 import csv
 import pickle
 import time
-from tools import sememe_coref as sm
+from tools import utils as sm
 from tools import methods
 
 parser = argparse.ArgumentParser(description='Process values.')
