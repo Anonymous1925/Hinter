@@ -5,7 +5,7 @@ import torch
 import datasets
 import time
 from tools import methods
-from tools import sememe_coref as sm
+from tools import utils as sm
 
 parser = argparse.ArgumentParser(description='Process values.')
 parser.add_argument('dataset_name', type=str, help="Name of the dataset to use")
