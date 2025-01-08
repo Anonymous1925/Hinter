@@ -1,5 +1,3 @@
-The [paper](7817HINTERExposingHidden.pdf) and [supplementary material](supplementary_material.pdf) can be found in the repository.
-
 ## Table of Contents
 
 ## About The Project
@@ -17,6 +15,8 @@ More details can be found in the [paper](7817HINTERExposingHidden.pdf), and in t
 Some hidden fairness issues can be tested in this [hugging face space](https://huggingface.co/spaces/Anonymous1925/Hinter).
 
 ## Getting Started
+
+If you want to simply test the tool on your data, you can find the tool with a README adapted inside the folder [Hinter_tool_usage](./Hinter_tool_usage).
 
 This section explains how to install the necessary components and launch the experiments. 
 
@@ -56,19 +56,53 @@ Train the BERT models using the datasets specified in [LexGLUE](https://github.c
 
 To test a BERT model, simply launch `mutation.py` with the appropriate parameters. Be sure to test a model for biases using the datasets it was trained with.
 
-- `model` : the path to the model you want to test.
-- `dataset_path` : the path to the dataset (can be a local path, or a path to a [Hugging Face](https://huggingface.co/) datasets proposed in [LexGLUE](https://github.com/coastalcph/lex-glue)).
-- `dict_path` : the path to the sensitive attribute pair of words.
-- `method` : modification method to use between `replacement`, `intersectional` and `deletion`.
-- `set` : set to test between `train`, `validation`, and `test`.
-- (Optional) `inter_dict_path` : path to the second `dataset_path` to use for intersectional bias testing. Only use it if `intersectional` is set for `method` as it is necessary.
-- (Optional) `description` : a tag that will be added to the results.
+- `model`: Path to the model you want to test.
+- `dataset_path`: Hugging Face path to the dataset.
+- `dict_path`: Path to the sensitive attribute pair of words.
+- `description`: Technique description.
+- `method`: Method to use for text modification (`replacement`, `deletion`, `intersectional`).
+- `set`: Dataset split to test (`train`, `validation`, `test`).
+- `--inter_dict_path` (optional): Path to the second words file for intersectional bias testing. Required only if `method` is `intersectional`.
+- `--length` (optional): Maximum text length to truncate (default: 512).
+- `--mutation_only` (optional): If set, only generate mutants without testing.
 
-Here is an example of usage where a *bert-base-uncased* model trained with *ecthr_a* is intersectional bias tested with both *race* and *gender* sensitive attributes on the *test* split of *ecthr_a* :
+Here is an example of usage where a *bert-base-uncased* model trained with *ecthr_a* is intersectional bias tested with both *race* and *gender* sensitive attributes on the *test* split of *ecthr_a*:
 
-`python3 mutation.py model/ecthr_a/bert-base-uncased/ lex_glue data/race/american_asian.csv --inter_dict_path=data/gender/male_female.csv race_gender intersectional test`
+```bash
+python3 mutation.py model/ecthr_a/bert-base-uncased/ lex_glue data/race/american_asian.csv \
+    --inter_dict_path=data/gender/male_female.csv \
+    race_gender intersectional test
+```
 
 Once finished, the program should have created an *Output* folder with the results in it.
+
+#### Results Interpretation
+
+The results are saved in the `Output` folder, organized by the following structure:
+
+```
+output/
+  └── dataset_name/
+        └── model_name/
+              └── split_name/
+                    └── result.csv
+```
+
+Here is a breakdown of the output file and how to interpret it:
+
+- **`result.csv`**:
+   - **Description**: This file contains a summary of the fairness testing process.
+   - **Columns**:
+     - `Technique`: The method used for text modification (e.g., `replacement`, `deletion`, or `intersectional`) combined with the technique description.
+     - `model`: The name of the tested model.
+     - `dataset`: The name of the dataset used.
+     - `num_errors`: The number of instances where the model's predictions changed after applying mutations.
+     - `num_occurrences`: The total number of words replaced/mutated across the dataset. **This value includes mutants that did not pass the semantic similarity check.**
+     - `num_cases_modified`: The number of cases in the dataset where at least one mutation occurred.
+     - `err_rate`: The ratio of `num_errors` to `num_cases_modified`. This represents the error rate of the model under bias mutations.
+     - `time (s)`: The total time taken to perform the testing in seconds.
+     - `word_file`: The dictionary of sensitive words used for the mutations.
+   - **How to Read**: This file provides an overall summary of the testing process and is useful for comparing quickly the performance of different models and techniques.
 
 ### Llama/GPT Models
 
