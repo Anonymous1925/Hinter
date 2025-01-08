@@ -1,4 +1,4 @@
-for i in  ledgar scotus ecthr_a ecthr_b eurlex; do
+for i in  ledgar scotus ecthr_a eurlex; do
   for j in  bert-base-uncased microsoft/deberta-base roberta-base nlpaueb/legal-bert-base-uncased ; do
     for k in test validation train ; do
       for l in common_disorder common_hair common_uncommon disorder_common old_young uncommon_common young_old hair_common; do
@@ -8,7 +8,7 @@ for i in  ledgar scotus ecthr_a ecthr_b eurlex; do
   done;
 done
 
-for i in  ledgar scotus ecthr_a ecthr_b eurlex; do
+for i in  ledgar scotus ecthr_a eurlex; do
   for j in  bert-base-uncased microsoft/deberta-base roberta-base nlpaueb/legal-bert-base-uncased ; do
     for k in test validation train; do
       for l in common_disorder common_hair common_uncommon disorder_common old_young uncommon_common young_old hair_common; do
