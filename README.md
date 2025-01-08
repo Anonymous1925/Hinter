@@ -16,6 +16,8 @@ Some hidden fairness issues can be tested in this [hugging face space](https://h
 
 ## Getting Started
 
+Reproducing the testing takes weeks, and even the processing of the results requires hours as it involves opening and processing a multitude of files.
+
 If you want to simply test the tool on your data, you can find the tool with a README adapted inside the folder [Hinter_tool_usage](./Hinter_tool_usage).
 
 This section explains how to install the necessary components and launch the experiments. 
@@ -66,43 +68,9 @@ To test a BERT model, simply launch `mutation.py` with the appropriate parameter
 - `--length` (optional): Maximum text length to truncate (default: 512).
 - `--mutation_only` (optional): If set, only generate mutants without testing.
 
-Here is an example of usage where a *bert-base-uncased* model trained with *ecthr_a* is intersectional bias tested with both *race* and *gender* sensitive attributes on the *test* split of *ecthr_a*:
+A script located at `src/script.sh` can be used to run the code on all lists for both atomic and intersectional methods across all models.
 
-```bash
-python3 mutation.py model/ecthr_a/bert-base-uncased/ lex_glue data/race/american_asian.csv \
-    --inter_dict_path=data/gender/male_female.csv \
-    race_gender intersectional test
-```
 
-Once finished, the program should have created an *Output* folder with the results in it.
-
-#### Results Interpretation
-
-The results are saved in the `Output` folder, organized by the following structure:
-
-```
-output/
-  └── dataset_name/
-        └── model_name/
-              └── split_name/
-                    └── result.csv
-```
-
-Here is a breakdown of the output file and how to interpret it:
-
-- **`result.csv`**:
-   - **Description**: This file contains a summary of the fairness testing process.
-   - **Columns**:
-     - `Technique`: The method used for text modification (e.g., `replacement`, `deletion`, or `intersectional`) combined with the technique description.
-     - `model`: The name of the tested model.
-     - `dataset`: The name of the dataset used.
-     - `num_errors`: The number of instances where the model's predictions changed after applying mutations.
-     - `num_occurrences`: The total number of words replaced/mutated across the dataset. **This value includes mutants that did not pass the semantic similarity check.**
-     - `num_cases_modified`: The number of cases in the dataset where at least one mutation occurred.
-     - `err_rate`: The ratio of `num_errors` to `num_cases_modified`. This represents the error rate of the model under bias mutations.
-     - `time (s)`: The total time taken to perform the testing in seconds.
-     - `word_file`: The dictionary of sensitive words used for the mutations.
-   - **How to Read**: This file provides an overall summary of the testing process and is useful for comparing quickly the performance of different models and techniques.
 
 ### Llama/GPT Models
 
@@ -117,7 +85,26 @@ Tokens for accessing both models will be required during testing.
 
 #### Testing
 
-Instructions on testing Llama and GPT models will be added here in the future.
+To test Llama and GPT models, you can use the [mutation_llms.py](./src/mutation_llms.py) script to create the mutants. Below are the parameters for the script:
+
+- `--model`: Path to the Llama or GPT model to be tested.
+- `--dataset`: Path to the dataset you want to test.
+- `--dict_path`: Path to the sensitive attribute pair of words.
+- `--method`: Mutation method to use (`replacement` or `intersectional`).
+- `--output_dir`: Directory where the generated mutants and results will be saved.
+- `--token`: Authorization token for accessing models (required for GPT-based testing).
+- `--length`: Maximum text length for mutation (default: 512).
+- `--mutation_only`: If set, generates only mutants without performing predictions.
+
+For example, to create mutants for a Llama model with a replacement method, run:
+
+```bash
+python mutation_llms.py --model meta-llama/Llama-2-7b-chat-hf \
+    --dataset data/imdb.csv \
+    --dict_path data/word_pairs.csv \
+    --method replacement \
+    --output_dir results/llama_replacement
+```
 
 ## Contact
 
