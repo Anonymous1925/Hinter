@@ -219,7 +219,7 @@ def fct_intersectional(word_list_1, replacement_list_1, word_list_2, replacement
                 if not similar : discarded+=1
 
                 mutants.append([word_1, replacement_word_1, word_2, replacement_word_2, modified_text_w1_w2, i, truncated_text[i], similar])
-                if mutation_only: continue
+                if mutation_only or not similar: continue
 
                 # testing prediction of mutant
                 predicted_class_id = methods.predict(modified_text_w1_w2, tokenizer, model, isMulti, trunc_length,
