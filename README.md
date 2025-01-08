@@ -18,9 +18,9 @@ Some hidden fairness issues can be tested in this [hugging face space](https://h
 
 Reproducing the testing takes weeks, and even the processing of the results requires hours as it involves opening and processing a multitude of files.
 
-If you want to simply test the tool on your data, you can find the tool with a README adapted inside the folder [Hinter_tool_usage](./Hinter_tool_usage).
+If you want to simply test the tool on your data, you can find the tool with a README adapted inside the folder [Hinter\_tool\_usage](./Hinter_tool_usage).
 
-This section explains how to install the necessary components and launch the experiments. 
+This section explains how to install the necessary components and launch the experiments.
 
 **Important:**
 
@@ -85,26 +85,14 @@ Tokens for accessing both models will be required during testing.
 
 #### Testing
 
-To test Llama and GPT models, you can use the [mutation_llms.py](./src/mutation_llms.py) script to create the mutants. Below are the parameters for the script:
+To test Llama and GPT models, you must first generate the mutants using the [mutation\_llms.py](./src/mutation_llms.py) script. This script processes the dataset with the specified dictionaries to produce the mutants. Below are the parameters for the script:
 
-- `--model`: Path to the Llama or GPT model to be tested.
-- `--dataset`: Path to the dataset you want to test.
-- `--dict_path`: Path to the sensitive attribute pair of words.
-- `--method`: Mutation method to use (`replacement` or `intersectional`).
-- `--output_dir`: Directory where the generated mutants and results will be saved.
-- `--token`: Authorization token for accessing models (required for GPT-based testing).
-- `--length`: Maximum text length for mutation (default: 512).
-- `--mutation_only`: If set, generates only mutants without performing predictions.
-
-For example, to create mutants for a Llama model with a replacement method, run:
-
-```bash
-python mutation_llms.py --model meta-llama/Llama-2-7b-chat-hf \
-    --dataset data/imdb.csv \
-    --dict_path data/word_pairs.csv \
-    --method replacement \
-    --output_dir results/llama_replacement
-```
+- `dataset_name`: Name of the dataset to use.
+- `dict_path`: Path to the sensitive attribute pair of words.
+- `set`: Dataset split to process (`train`, `validation`, `test`).
+- `--inter_dict_path` (optional): Path to the second words file for intersectional bias testing. Required for intersectional methods.
+- `--output_path` (optional): Directory where the generated mutants will be saved (default: `../output/`).
+- `--data_path` (optional): Path to the folder containing the IMDB dataset. The default path for IMDB is `../data/imdb/imdb.csv`. If the dataset file moves, for example to `../../dataset/imdb/imdb.csv`, you need to update `--data_path` to `../../dataset/`.
 
 ## Contact
 
