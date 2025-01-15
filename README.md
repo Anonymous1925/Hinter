@@ -1,3 +1,4 @@
+
 ## Table of Contents
 
 ## About The Project
@@ -93,6 +94,41 @@ To test Llama and GPT models, you must first generate the mutants using the [mut
 - `--inter_dict_path` (optional): Path to the second words file for intersectional bias testing. Required for intersectional methods.
 - `--output_path` (optional): Directory where the generated mutants will be saved (default: `../output/`).
 - `--data_path` (optional): Path to the folder containing the IMDB dataset. The default path for IMDB is `../data/imdb/imdb.csv`. If the dataset file moves, for example to `../../dataset/imdb/imdb.csv`, you need to update `--data_path` to `../../dataset/`.
+
+After the mutants generation, the script to run tests on Llama and GPT models is located at [`src/llms_original_legal_testing.py`](./src/llms_original_legal_testing.py). Before running the script, make sure to edit the file at its beginning to add your GPT and Llama tokens under `TOKEN_GPT` and `TOKEN_LLAMA`, respectively.
+
+
+Below are the parameters you need to provide for the script:
+
+- `model_name` (required): The name of the model to test. Accepted values:
+  - `llama2`: Refers to `meta-llama/Llama-2-7b-chat-hf`.
+  - `gpt`: Refers to `gpt-3.5-turbo-0125`.
+- `dataset_name` (required): The name of the dataset to use. (`ecthr_a`, `eurlex`, `scotus`, `ledgar`, `imdb`).
+- `set` (required): The dataset split to process (`train`, `validation`, `test`).
+- `--dict` (optional): Path to the first sensitive word file for atomic mutations or the first dictionary in intersectional mutations.
+- `--inter_dict` (optional): Path to the second sensitive word file for intersectional bias testing.
+- `--output_path` (optional): Path to save the testing results. Default: `../output/`.
+- `--data_path` (optional): Path to the folder containing datasets. Default: `../data/`.
+  - For `imdb`, the default is `../data/imdb/imdb.csv`. Update this if the path changes.
+- `--use_bfloat16` (optional): Enables usage of `bfloat16` for models. Recommended if your GPU supports `bfloat16`.
+- `--use_float32` (optional): Enables usage of `float32` for testing. Use this if `float16` is unsupported or no GPU is available.
+- `--cpu` (optional): Forces the script to use CPU-only processing.
+- `--gpu` (optional): Forces all processes to run on GPU.
+
+
+### Processing Results
+
+Once all mutants for BERT, Llama, and GPT models have been generated and tested for both atomic and intersectional methods across all datasets, the results can be processed using [process_results.py](./src/process_results.py).
+
+This script processes the collected results, aggregates them, and generates comprehensive outputs for evaluation.
+
+#### Parameters
+
+- `--output_path` (string, default: `"../output_mutaint/"`):  
+  Specifies the path to the output folder where results will be stored. Ensure this matches the path used during mutant generation and testing.
+
+The script will read the necessary files, analyze the data, and write the processed results to a file named `llm_original_mutants_testing_stats.csv` in the specified output path.
+
 
 ## Contact
 
