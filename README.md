@@ -129,20 +129,24 @@ This script processes the collected results, aggregates them, and generates comp
 
 The script will read the necessary files, analyze the data, and write the processed results to a file named `llm_original_mutants_testing_stats.csv` in the specified output path.
 
+### Datasets
+- [ECTHR Dataset](https://github.com/coastalcph/lex-glue#ecthr-a): Evaluating fairness in European Court of Human Rights cases.
+- [EURLex Dataset](https://github.com/coastalcph/lex-glue#eurlex): Providing legal texts for language model evaluation.
+- [LEDGAR Dataset](https://github.com/coastalcph/lex-glue#ledgar): Resources for legal contract analysis.
+- [SCOTUS Dataset](https://case.law/): Supreme Court legal cases used in testing.
+- [IMDB Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews): Sentiment analysis dataset.
+- [SBIC Dataset](https://paperswithcode.com/dataset/sbic): Source for the bias dictionary.
+
+### Models
+- [meta-llama/Llama-2-7b-chat-hf](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf): Hosted on Hugging Face, requires access approval.
+- [gpt-3.5-turbo-0125](https://platform.openai.com/docs/models/gpt-3-5#gpt-3-5-turbo): Available via OpenAI, requires sufficient credits.
+- [LexGLUE Models](https://github.com/coastalcph/lex-glue): Includes BERT, Legal-BERT, RoBERTA, and DeBERTA architectures.
+
+### Other
+- [Hugging Face](https://huggingface.co): Hosting platform for various models.
+- [LexGLUE Benchmark](https://github.com/coastalcph/lex-glue): Legal language benchmarks.
+- [Best README Template](https://github.com/othneildrew/Best-README-Template/tree/master): Format inspiration for this README.
 
 ## Contact
 
 Anonymous
-
-## Acknowledgments
-
-- [ECTHR Dataset](https://github.com/coastalcph/lex-glue#ecthr-a) via LexGLUE for evaluating fairness in European Court of Human Rights cases.
-- [EURLex Dataset](https://github.com/coastalcph/lex-glue#eurlex) via LexGLUE for providing legal texts for language model evaluation.
-- [LEDGAR Dataset](https://github.com/coastalcph/lex-glue#ledgar) via LexGLUE for offering resources for legal contract analysis.
-- [SCOTUS Dataset](https://case.law/) for providing access to Supreme Court legal cases used in testing.
-- [Hugging Face](https://huggingface.co) for hosting models like `meta-llama/Llama-2-7b-chat-hf`.
-- [LexGLUE](https://github.com/coastalcph/lex-glue) for legal language benchmarks.
-- [SBIC](https://paperswithcode.com/dataset/sbic) for the bias dictionary.
-- [IMDB Dataset](https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews) for sentiment analysis.
-- [Best README Template](https://github.com/othneildrew/Best-README-Template/tree/master) for the format inspiration.
-
