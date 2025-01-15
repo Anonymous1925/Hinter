@@ -129,7 +129,7 @@ This script processes the collected results, aggregates them, and generates comp
 
 The script will read the necessary files, analyze the data, and write the processed results to a file named `llm_original_mutants_testing_stats.csv` in the specified output path.
 
-## Usefull Links
+## Useful Links
 
 ### Datasets
 - [ECTHR Dataset](https://github.com/coastalcph/lex-glue#ecthr-a): Evaluating fairness in European Court of Human Rights cases.
